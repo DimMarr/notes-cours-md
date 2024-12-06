@@ -164,3 +164,72 @@ Ou ajouter le flag `-a` pour afficher tous les Pods du cluster :
 ```bash
 kubectl get pods -a
 ```
+La liste de tous les flags est disponible ici : [kubectl get](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get)
+### Supprimer un Pod
+Pour supprimer un Pod, on utilise la commande `kubectl delete` :
+```bash
+kubectl delete pod/mon_pod
+```
+
+---
+
+## Fichier Kubernetes de Deployment YAML
+Un fichier de déploiement YAML permet de décrire un déploiement Kubernetes.
+Voici un exemple de fichier de déploiement pour un Pod Nginx :
+```yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-deployment
+spec:
+    replicas: 3
+    selector:
+        matchLabels:
+        app: nginx
+    template:
+        metadata:
+        labels:
+            app: nginx
+        spec:
+        containers:
+        - name: nginx
+            image: nginx:1.14.2
+            ports:
+            - containerPort: 8080
+```
+
+On définit un déploiement nommé `nginx-deployment` avec 3 réplicas du Pod Nginx.
+Le Pod Nginx utilise l'image `nginx:1.14.2` et expose le port 8080.
+On utilise la version `apps/v1` de l'API Kubernetes pour définir le déploiement.
+
+### Appliquer un fichier de déploiement YAML
+Pour appliquer un fichier de déploiement YAML, on utilise la commande `kubectl apply` :
+```bash
+kubectl apply -f mon_fichier.yaml
+```
+
+### Vérifier le déploiement
+On peut vérifier l'état du déploiement avec la commande `kubectl get deploy` :
+```bash
+kubectl get deploy
+```
+
+---
+
+## Analysez le déploiement
+Pour diagnostiquer une erreur de déploiement, on peut consulter les logs des Pods :
+```bash
+kubectl logs mon_pod
+```
+Vous pouvez spécifier le nom du pod ou utiliser un sélecteur pour cibler plusieurs pods.
+La commande suivante permet de récupérer les logs de tous les pods d'un déploiement :
+```bash
+kubectl logs -l app=mon_deployment
+```
+Dans le cas où le Pod a plusieurs conteneurs, vous pouvez spécifier le conteneur dont vous
+souhaitez récupérer les logs :
+```bash
+kubectl logs mon_pod -c mon_conteneur
+```
+
+
