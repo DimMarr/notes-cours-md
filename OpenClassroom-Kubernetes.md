@@ -25,6 +25,10 @@
   * [Appliquer un fichier de déploiement YAML](#appliquer-un-fichier-de-déploiement-yaml)
   * [Vérifier le déploiement](#vérifier-le-déploiement)
 * [Analysez le déploiement](#analysez-le-déploiement)
+  * [Afficher les logs](#afficher-les-logs)
+  * [Affichez la description détaillée d’une ressource](#affichez-la-description-détaillée-dune-ressource)
+  * [Afficher les événements](#afficher-les-événements)
+
 ## Pré-requis
 Rendez-vous sur la [documentation officielle de Minikube](https://minikube.sigs.k8s.io/docs/start/) pour télécharger et installer Minikube sur votre machine.
 
