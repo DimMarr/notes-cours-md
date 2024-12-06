@@ -227,6 +227,8 @@ kubectl get deploy
 ---
 
 ## Analysez le déploiement
+
+### Afficher les logs
 Pour diagnostiquer une erreur de déploiement, on peut consulter les logs des Pods :
 ```bash
 kubectl logs mon_pod
@@ -242,4 +244,15 @@ souhaitez récupérer les logs :
 kubectl logs mon_pod -c mon_conteneur
 ```
 
+### Affichez la description détaillée d’une ressource
+La commande suivante permet d'afficher la description détaillée d'une ressource :
+```bash
+kubectl describe mon_pod
+```
+Vous pouvez spécifier le type de ressource (pod, deployment, service, etc.) pour obtenir des informations plus détaillées.
 
+### Afficher les événements
+Pour afficher les événements liés à une ressource, utilisez la commande suivante :
+```bash
+kubectl get events
+```
