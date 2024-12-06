@@ -14,7 +14,17 @@
     * [Exposer la registry](#1-exposer-la-registry)
     * [Vérifier que la registry fonctionne](#2-vérifier-que-la-registry-fonctionne)
     * [Taguer et uploader une image dans la registry](#3-taguer-et-uploader-une-image-dans-la-registry)
-
+* [Les Pod Kubernetes](#les-pod-kubernetes)
+  * [Init Container](#init-container)
+  * [Side Car Container](#side-car-container)
+  * [Cycle de vie d'un Pod](#cycle-de-vie-dun-pod)
+  * [Déployer un Pod](#déployer-un-pod)
+  * [Vérifier l'état des Pods](#vérifier-létat-des-pods)
+  * [Supprimer un Pod](#supprimer-un-pod)
+* [Fichier Kubernetes de Deployment YAML](#fichier-kubernetes-de-deployment-yaml)
+  * [Appliquer un fichier de déploiement YAML](#appliquer-un-fichier-de-déploiement-yaml)
+  * [Vérifier le déploiement](#vérifier-le-déploiement)
+* [Analysez le déploiement](#analysez-le-déploiement)
 ## Pré-requis
 Rendez-vous sur la [documentation officielle de Minikube](https://minikube.sigs.k8s.io/docs/start/) pour télécharger et installer Minikube sur votre machine.
 
