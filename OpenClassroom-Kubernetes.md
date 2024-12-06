@@ -1,6 +1,19 @@
 # Kubernetes - OpenClassroom
 
-[[_TOC_]]
+* [Pré-requis](#pré-requis--télécharger-minikube)
+* [Commandes de base](#commandes-de-base)
+  * [Démarrer Minikube](#1-démarrer-minikube)
+  * [Vérifier le statut de Minikube](#2-vérifier-le-statut-de-minikube)
+* [Construire une image Docker pour Minikube](#construire-une-image-docker-pour-minikube)
+  * [Configurer Docker](#1-configurer-docker-pour-lenvironnement-de-minikube)
+  * [Construire une image](#2-construire-une-image)
+* [Déployer une image avec Minikube](#déployer-une-image-avec-minikube)
+  * [Créer un déploiement](#1-créer-un-déploiement)
+  * [Exposer un port](#2-exposer-un-port-pour-le-déploiement)
+* [Registry pour Minikube](#registry-pour-minikube)
+    * [Exposer la registry](#1-exposer-la-registry)
+    * [Vérifier que la registry fonctionne](#2-vérifier-que-la-registry-fonctionne)
+    * [Taguer et uploader une image dans la registry](#3-taguer-et-uploader-une-image-dans-la-registry)
 
 ## Pré-requis : Télécharger Minikube
 Rendez-vous sur la [documentation officielle de Minikube](https://minikube.sigs.k8s.io/docs/start/) pour télécharger et installer Minikube sur votre machine.
@@ -60,7 +73,7 @@ Pour activer la registry locale de Minikube, utilisez la commande suivante :
 minikube addons enable registry
 ```
 
-### 1. Exposer la registry publiquement
+### 1. Exposer la registry
 Par défaut, la registry écoute sur le port 80 de la machine Minikube. Pour l'exposer sur le port 5000 (par convention) :
 ```bash
 minikube kubectl -- port-forward --namespace kube-system service/registry 5000:80
